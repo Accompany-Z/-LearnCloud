@@ -1,0 +1,21 @@
+eureka:
+  instance:
+    #主机名
+    hostname: localhost
+    #是否将自已的p注册到eureka中,默认fLse 注册主机名
+    prefer-ip-address: true
+    #设置当前实ip
+    ip-address: 127.0.0.1
+    #修改 instance-id显示
+    instance-id: ${eureka.instance.ip-address}:${spring.application.name}
+    #每一次 eureka client向 eureka server发送心跳的时间间隔
+    lease-renewal-interval-in-seconds: 30
+    #如果9秒内 eureka server没有收到 eureka client的心跳包,则剔除该服务
+    lease-expiration-duration-in-seconds: 90
+eureka:
+  server:
+    #是否开启自我保护机制,默认true
+    #建议开发环境关闭，正式环境开启
+    enable-self-preservation:
+    #清理问隔(单位亳秒,歉认是60*100)
+    eviction-interval-timer-in-ms:

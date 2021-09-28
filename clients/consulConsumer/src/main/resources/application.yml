@@ -1,0 +1,17 @@
+server:
+  port: 9000
+spring:
+  application:
+    # 应用名称
+    name: consulConsumer
+  cloud:
+    consul:
+      # consul服务端的ip或者域名
+      host: localhost
+      # consul服务端的端口（默认8500）
+      port: 8500
+      discovery:
+        # Service服务的名称（当前应用注册到consul的名称）
+        service-name: ${spring.application.name}
+        # 是否显示ip（以ip或者主机名的形式显示）
+        prefer-ip-address: true

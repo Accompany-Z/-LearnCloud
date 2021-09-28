@@ -1,0 +1,24 @@
+server:
+  # Eureka默认端口也是8761
+  port: 8761
+# 配置Eureka
+# Eureka共四部分配置
+# 1. dashboard  : Eureka的Web控制台相关配置
+# 2. server     : 服务端相关配置
+# 3. instance   : 实例[项目]相关配置
+eureka:
+  instance:
+    # 主机名
+    hostname: localhost
+  client:
+    service-url:
+      # Eureka服务端地址，客户端使用该地址与Eureka进行通信
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+    # 是否将自己的路径注册到Eureka(服务的提供方才需要注册到Eureka)
+    register-with-eureka: false
+    # 是否需要再Eureka中抓取路径（服务的调用方需要）
+    fetch-registry: false
+  server:
+    enable-self-preservation: false
+
+

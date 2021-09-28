@@ -1,0 +1,20 @@
+server:
+  # Eureka默认端口也是8761
+  port: 8762
+
+eureka:
+  instance:
+    # 主机名(单机环境下搭建集群，主机名不可相同（主机名相同无法构成集群）)
+    hostname: eurekaTow
+  client:
+    service-url:
+      # Eureka服务端地址，客户端使用该地址与Eureka进行通信
+      defaultZone: http://eurekaOne:8761/eureka
+    # 是否将自己的路径注册到Eureka(服务的提供方才需要注册到Eureka)
+    register-with-eureka: true
+    # 是否需要再Eureka中抓取路径（服务的调用方需要）
+    fetch-registry: true
+spring:
+  application:
+    name: eurekaColony
+
