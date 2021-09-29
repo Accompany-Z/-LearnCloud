@@ -16,6 +16,8 @@
         <module>eurekaColonyTow</module>
         <module>consulProvider</module>
         <module>consulConsumer</module>
+        <module>nacosConsumer</module>
+        <module>nacosProvider</module>
     </modules>
 
     <!-- Spring Boot Parent -->
