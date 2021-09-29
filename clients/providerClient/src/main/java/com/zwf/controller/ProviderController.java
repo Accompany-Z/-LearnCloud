@@ -3,6 +3,7 @@ package com.zwf.controller;
 import com.zwf.pojo.TestEntity;
 import com.zwf.service.ProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,13 +18,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/provider")
 public class ProviderController {
 
+    @Value("${server.port}")
+    private int port;
+
     @Autowired
     private ProviderService service;
 
     @GetMapping("/getData/{param}")
     public TestEntity getData(@PathVariable("param") String param) {
 
+        System.out.println("负载均衡：" + port);
         System.out.println("Provider 接收参数：" + param);
+
         return service.getData();
 
     }

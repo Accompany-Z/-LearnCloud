@@ -19,6 +19,12 @@ spring:
     # 对应Eureka web控制台Instances currently registered with Eureka 中 Application 显示的名称
     # 将来使用该名称获取对应访问的路径
     name: consumerClient
+# 配置负载均衡策略
+# 服务提供方的应用名称
+PROVIDERCLIENT:
+  ribbon:
+    # 策略
+    NFloadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
 
 
