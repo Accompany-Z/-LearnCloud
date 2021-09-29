@@ -52,4 +52,20 @@ public class EurekaConsumerController {
         }
         return restTemplate.getForObject(url, TestEntity.class);
     }
+
+
+    /**
+     * Ribbn简化RestTemplate远程服务调用
+     *
+     * @param param
+     * @return : com.zwf.pojo.TestEntity
+     * @Date 2021/9/29 - 11:11
+     */
+    @GetMapping("/getRibbn/{param}")
+    public TestEntity getRibbn(@PathVariable("param") String param) {
+
+        url = "http://PROVIDERCLIENT/provider/getData/" + param;
+
+        return restTemplate.getForObject(url, TestEntity.class);
+    }
 }
